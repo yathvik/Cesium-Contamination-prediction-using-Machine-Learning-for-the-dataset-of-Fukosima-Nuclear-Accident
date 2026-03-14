@@ -1,13 +1,20 @@
+# Core app dependencies
 streamlit>=1.26.1
 numpy<2
 pandas<3
 scikit-learn<2
 matplotlib<3.8
-torch>=2.1.0
-torchvision>=0.16.0
-torchaudio>=2.1.0
+
+# PyTorch (CPU) – install first so PyG can find it if needed
+torch==2.5.0
+torchvision==0.20.0
+torchaudio==2.5.0
+
+# PyTorch Geometric – force official CPU wheels to avoid build failures
+-f https://data.pyg.org/whl/torch-2.5.0+cpu.html
 torch-geometric>=2.4.0
-torch-scatter>=2.1.1
-torch-sparse>=0.6.17
-torch-cluster>=1.6.3
-torch-spline-conv>=1.2.1
+torch-scatter
+torch-sparse
+torch-cluster
+torch-spline-conv
+# pyg-lib              # optional: add if your GNN code uses accelerated kernels
